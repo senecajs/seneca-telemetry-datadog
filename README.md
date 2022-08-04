@@ -16,7 +16,32 @@ Handle incoming messages within other frameworks.
 | ![Voxgig](https://www.voxgig.com/res/img/vgt01r.png) | This open source module is sponsored and supported by [Voxgig](https://www.voxgig.com). |
 | ---------------------------------------------------- | --------------------------------------------------------------------------------------- |
 
+## Notice
+
+This piece of software is currently at the prototype stage, which means, among other things, that its API can be unstable,
+and the software - buggy. For the duration of the prototype stage, we will also be using some auxiliary packages such as
+`assert-plus` and `fetch-prop` - that are expected to help catch bugs.
+
+
 ## Install
+
+- Install and enable the `datadog-agent` daemon from the Datadog website
+- Install the `dd-trace` package
+- Initialize the `dd-trace` package in your project
+- Install this plugin
+- Use this plugin with your Seneca instance, IMPORTANT - wrap your `dd-trace` in a function and pass to the plugin via the `getTracer` option:
+```javascript
+const DdTrace = require('dd-trace')
+const Seneca = require('seneca')
+
+const seneca = Seneca()
+const tracer = DdTrace.init()
+
+seneca.use(require('seneca-telemetry-datadog'), {
+	getTracer: () => tracer
+})
+```
+
 
 ## Quick Example
 
