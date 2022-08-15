@@ -2,7 +2,7 @@ const Assert = require('assert-plus')
 const { fetchProp: p } = require('fetch-prop')
 
 
-function datadogTelemetryPlugin(opts = {}) {
+function telemetry_datadog(opts = {}) {
 	const seneca = this
 
 	const getTracer = p(opts, 'getTracer', Assert.func)
@@ -68,4 +68,4 @@ function datadogTelemetryPlugin(opts = {}) {
 }
 
 
-module.exports = datadogTelemetryPlugin
+module.exports = telemetry_datadog
