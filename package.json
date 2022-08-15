@@ -2,7 +2,7 @@
   "name": "@seneca/telemetry-datadog",
   "license": "MIT",
   "version": "0.0.1",
-  "main": "telemetry-datadog.js",
+  "main": "src/telemetry-datadog.js",
   "dependencies": {
     "assert-plus": "1.0.0",
     "fetch-prop": "1.0.0"
@@ -10,5 +10,11 @@
   "peerDependencies": {
     "dd-trace": ">=2.11.0",
     "seneca": ">=3"
-  }
+  },
+  "files": [
+    "src/**/*.js",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ]
 }
