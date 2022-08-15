@@ -1,5 +1,5 @@
 {
-  "name": "seneca-tracing-datadog",
+  "name": "seneca-telemetry-datadog",
   "main": "datadog-telemetry.js",
   "version": "0.0.1",
   "dependencies": {
