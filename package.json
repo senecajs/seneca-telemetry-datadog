@@ -12,6 +12,11 @@
     "dd-trace": ">=2.11.0",
     "seneca": ">=3"
   },
+  "scripts": {
+    "test": "jest --coverage",
+    "test-some": "jest -t",
+    "test-watch": "jest --coverage --watchAll"
+  },
   "files": [
     "src/**/*.js",
     "LICENSE",
