@@ -1,6 +1,6 @@
 const Seneca = require('seneca')
 
-describe('github-provider', () => {
+describe('telemetry-datadog', () => {
     test('happy', async () => {
       const seneca = Seneca({ legacy: false })
         .test()
