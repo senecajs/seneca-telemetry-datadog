@@ -5,11 +5,17 @@
   "main": "src/telemetry-datadog.js",
   "dependencies": {
     "assert-plus": "1.0.0",
-    "fetch-prop": "1.0.0"
+    "fetch-prop": "1.0.0",
+    "jest": "28.1.3"
   },
   "peerDependencies": {
     "dd-trace": ">=2.11.0",
     "seneca": ">=3"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test-some": "jest -t",
+    "test-watch": "jest --coverage --watchAll"
   },
   "files": [
     "src/**/*.js",
