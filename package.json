@@ -1,7 +1,7 @@
 {
   "name": "@seneca/telemetry-datadog",
   "license": "MIT",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src/telemetry-datadog.js",
   "homepage": "https://github.com/senecajs/seneca-telemetry-datadog#readme",
   "repository": {
@@ -10,12 +10,16 @@
   },
   "dependencies": {
     "assert-plus": "1.0.0",
-    "fetch-prop": "1.0.0",
-    "jest": "28.1.3"
+    "fetch-prop": "1.0.0"
   },
   "peerDependencies": {
-    "dd-trace": ">=2.11.0",
-    "seneca": ">=3"
+    "dd-trace": ">=6.0.0",
+    "seneca": "^4.0.0"
+  },
+  "devDependencies": {
+    "dd-trace": "^6.26.0",
+    "jest": "28.1.3",
+    "seneca": "^4.0.0"
   },
   "scripts": {
     "test": "jest --coverage",
@@ -26,6 +30,12 @@
     "src/**/*.js",
     "LICENSE",
     "README.md",
-    "package.json"
-  ]
+    "CHANGES.md"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
