@@ -15,14 +15,13 @@
 
 ## Install
 
+Requires Seneca 4, Node.js 24 or later, and `dd-trace` 6 or later.
+
 ```sh
-npm install @seneca/telemetry-datadog
+npm install seneca@^4 dd-trace @seneca/telemetry-datadog
 ```
 
-Also install the required peer dependencies:
-
-- Install and enable the `datadog-agent` daemon from the Datadog website
-- Install the `dd-trace` package
+Also install and enable the `datadog-agent` daemon from the Datadog website.
 
 ## Quick Example
 
@@ -30,13 +29,21 @@ Also install the required peer dependencies:
 const DdTrace = require('dd-trace')
 const Seneca = require('seneca')
 
-const seneca = Seneca()
 const tracer = DdTrace.init()
+const seneca = Seneca()
 
-seneca.use('telemetry-datadog', {
+seneca.use('@seneca/telemetry-datadog', {
   getTracer: () => tracer
 })
 ```
+
+Each action call runs in a Datadog span. The span name is the pattern of
+the action, for example `a:1`. The span has the tag `pattern` with the
+pattern as an object. When the action fails, the span records the error.
+
+The option `getTracer` is a function that returns the tracer. Without it,
+the plugin uses the tracer that `require('dd-trace')` exports, which is the
+tracer that `init()` starts.
 
 ## More Examples
 

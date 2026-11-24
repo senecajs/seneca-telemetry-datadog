@@ -2,10 +2,21 @@ const Assert = require('assert-plus')
 const { fetchProp: p } = require('fetch-prop')
 
 
+// Without the option getTracer, the plugin uses the tracer that dd-trace
+// exports. It is the same tracer that require('dd-trace').init() returns,
+// and it does nothing until the application calls init().
+//
+function defaultGetTracer() {
+	return require('dd-trace')
+}
+
+
 function telemetry_datadog(opts = {}) {
 	const seneca = this
 
-	const getTracer = p(opts, 'getTracer', Assert.func)
+	const getTracer = null == opts.getTracer
+		? defaultGetTracer
+		: p(opts, 'getTracer', Assert.func)
 	const dd_tracer = getTracer()
 
 
